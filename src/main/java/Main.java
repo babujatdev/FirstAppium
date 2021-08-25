@@ -1,5 +1,7 @@
 import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
+import org.openqa.selenium.By;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
 import java.net.MalformedURLException;
@@ -27,6 +29,17 @@ public class Main {
         AppiumDriver driver = new AndroidDriver(url, desiredCapabilities);
         String sessionId = driver.getSessionId().toString();
 
-
+        MobileElement seven = (MobileElement) driver.findElement(By.id("com.android.calculator2:id/digit_7"));
+        seven.click();
+        MobileElement plus = (MobileElement) driver.findElement(By.id("com.android.calculator2:id/op_add"));
+        plus.click();
+        MobileElement nine = (MobileElement) driver.findElement(By.id("com.android.calculator2:id/digit_9"));
+        nine.click();
+        MobileElement formula = (MobileElement) driver.findElement(By.id("com.android.calculator2:id/formula"));
+        formula.getText();
+        System.out.println("Formula = "+formula.getText());
+        MobileElement result = (MobileElement) driver.findElement(By.id("com.android.calculator2:id/result"));
+        result.getText();
+        System.out.println("Result = "+result.getText());
     }
 }
